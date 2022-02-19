@@ -1,0 +1,53 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}{% endblock title %} <br />
+
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Id No</th>
+          <th scope="col">Profile</th>
+          <th scope="col">Button</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for profile in myuser %}
+        <tr>
+          <th scope="row">{{profile.id}}</th>
+          <td>{{profile.name}}</td>
+          <td>{{profile.email}}</td>
+          <td>{{profile.id_no}}</td>
+          <td>
+            <img
+              src="{{profile.img_profile.url}}"
+              alt=""
+              style="width: 40px; height: 40px"
+            />
+          </td>
+          <td>
+            <span
+              ><a
+                href="{% url 'updateview' profile.id %}"
+                class="btn btn-warning ms-2"
+                >Edit</a
+              >
+              <a href="{% url 'delteview' profile.id %}" class="btn btn-danger">
+                Delete</a
+              ></span
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

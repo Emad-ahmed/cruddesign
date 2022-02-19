@@ -1,0 +1,22 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}{% endblock title %} <br />
+
+{% block content %}
+<br />
+
+<div class="container">
+  <div class="jumbotron w-50 m-auto mt-5">
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %} <br />
+      {% for fm in form %} {{fm.label_tag}} {{fm}} <br />
+
+      {% endfor %}
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-danger w-100">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
